@@ -45,7 +45,7 @@ def test_prediction():
         }
     ]
     
-    print("🔮 Testing Abalone Age Prediction API\n")
+    print("Testing Abalone Age Prediction API\n")
     
     for i, test_case in enumerate(test_cases, 1):
         print(f"Test Case {i}: {test_case['name']}")
@@ -56,31 +56,29 @@ def test_prediction():
             
             if response.status_code == 200:
                 result = response.json()
-                print(f"✅ Status: SUCCESS")
-                print(f"📊 Input Data:")
+                print(f"Status: SUCCESS")
+                print(f"Input Data:")
                 for key, value in test_case['data'].items():
                     print(f"   {key}: {value}")
-                print(f"🎯 Prediction Results:")
-                print(f"   Predicted Rings: {result['predicted_rings']}")
-                print(f"   Predicted Age: {result['predicted_age']} years")
+                print(f"Prediction Results:")
+                print(f"Predicted Rings: {result['predicted_rings']}")
+                print(f"Predicted Age: {result['predicted_age']} years")
             else:
-                print(f"❌ Status: FAILED ({response.status_code})")
-                print(f"   Error: {response.text}")
+                print(f"Status: FAILED ({response.status_code})")
+                print(f"Error: {response.text}")
                 
         except Exception as e:
-            print(f"❌ Status: ERROR")
-            print(f"   Exception: {e}")
+            print(f"Status: ERROR")
+            print(f"Exception: {e}")
         
         print("\n")
 
 if __name__ == "__main__":
     try:
         test_prediction()
-        print("🎉 Testing completed!")
+        print("Testing completed!")
     except requests.exceptions.ConnectionError:
-        print("❌ Cannot connect to API!")
-        print("💡 Make sure the server is running:")
-        print("   cd abalone-backend")
-        print("   uvicorn app:app --reload")
+        print("Cannot connect to API!")
+        print("Make sure the server is running:")
     except Exception as e:
-        print(f"❌ Unexpected error: {e}")
+        print(f"Unexpected error: {e}")

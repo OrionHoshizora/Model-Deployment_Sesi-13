@@ -5,6 +5,10 @@ COPY package*.json ./
 RUN npm install --force
 
 COPY . .
+
+ARG VITE_API_URL=http://backend:8000
+ENV VITE_API_URL=$VITE_API_URL
+
 RUN npm run build
 
 EXPOSE 4173
