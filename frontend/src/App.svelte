@@ -64,7 +64,7 @@
     error = '';
   }
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+  const API_URL = 'https://backend-abalone-production.up.railway.app' || 'http://localhost:8000';
 
   async function predictAge() {
     isLoading = true;

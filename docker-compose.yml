@@ -5,9 +5,12 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./backend/models:/app/models
+      - type: bind
+        source: ./backend/models
+        target: /app/models
+        read_only: true
     networks:
-      - abalone_network  
+      - abalone_network
         
   frontend:
     build:
